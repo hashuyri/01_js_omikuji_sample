@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>会計ミニテスト</title>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet" />
+  <link rel="stylesheet" href="css/mini_test.css">
+</head>
+
+<body>
+  <main>
+
+    <section id="quesion_box">
+      <div class="tittle_box">
+        <h1>会計ミニテスト</h1>
+        <p>あなたは何問正解できるか！！</p>
+
+        <h2>ルール説明</h2> 
+        <ul>
+          <li>これから画面に登場する5つの問いに解答</li>
+          <li>勘定科目と金額はプルダウンより選択</li>
+          <li>正解数3問以下なら腕立て10回</li>
+        </ul>
+      </div>
+      <div class="result_box">
+        <span id="result_box"></span>
+        <p>/ 5</p>
+      </div>
+    </section>
+
+    <section id="answer_box">
+      <div id="quesion_tittle">
+        <h2>問</h2>
+        <h2 id="quesion_count">1</h2>
+      </div>
+      <div id="quesion_str">
+        <p id="quesion"></p>
+        <p id="caution">※必ず上詰めでご解答ください！！</p>
+      </div>
+
+      <div class="container">
+        <div id="grid_item1" class="sell">借方勘定科目</div>
+        <div id="grid_item2" class="sell">金額</div>
+        <div id="grid_item3" class="sell">貸方勘定科目</div>
+        <div id="grid_item4" class="sell">金額</div>
+        <div id="grid_item5" class="sell">
+          <select name=”kamoku” class="grid_answer">
+            <option value=”null”></option>
+            <optgroup label="BS科目">
+              <option value=”cash”>現預金</option>
+              <option value=”urikake”>売掛金</option>
+              <option value=”shouhin”>商品</option>
+              <option value=”mishu”>未収入金</option>
+              <option value=”kougukigu”>工具器具備品</option>
+              <option value=”ikkatu”>一括償却資産</option>
+              <option value=”soft”>ソフトウェア</option>
+              <option value=”softkari”>ソフトウェア仮勘定</option>
+              <option value=”chomae”>長期前払費用</option>
+              <option value=”shikikin”>敷金</option>
+              <option value=”mibaraihoujin”>未払法人税等</option>
+              <option value=”shihonkin”>資本金</option>
+              <option value=”junbikin”>資本準備金</option>
+            </optgroup>
+            <optgroup label="PL科目">
+              <option value=”uriage”>売上高</option>
+              <option value=”kishutana”>期首棚卸高</option>
+              <option value=”kimatutana”>期末棚卸高</option>
+              <option value=”gyoumu”>業務委託費</option>
+              <option value=”bihin”>備品・消耗品費</option>
+              <option value=”chidai”>地代家賃</option>
+              <option value=”tesuryo”>支払手数料</option>
+              <option value=”ukeri”>受取利息</option>
+              <option value=”ukehai”>受取配当金</option>
+              <option value=”houjinzei”>法人税等</option>
+            </optgroup>
+          </select>
+        </div>
+        <div id="grid_item6" class="sell">
+          <select name=”kamoku” class="grid_answer_num">
+            <option value=”null”></option>
+            <option value=”num1”>46,741</option>
+            <option value=”num2”>130,000</option>
+            <option value=”num3”>258,459</option>
+            <option value=”num4”>305,200</option>
+            <option value=”num5”>450,000</option>
+            <option value=”num6”>660,000</option>
+            <option value=”num7”>900,000</option>
+            <option value=”num8”>1,350,000</option>
+            <option value=”num9”>1,500,000</option>
+            <option value=”num10”>3,000,000</option>
+            <option value=”num11”>5,000,000</option>
+            <option value=”num12”>6,000,000</option>
+            <option value=”num13”>7,200,000</option>
+            <option value=”num14”>10,000,000</option>
+            <option value=”num15”>15,000,000</option>
+            <option value=”num16”>20,000,000</option>
+          </select>
+        </div>
+        <div id="grid_item7" class="sell">
+          <select name=”kamoku” class="grid_answer">
+            <option value=”null”></option>
+            <optgroup label="BS科目">
+              <option value=”cash”>現預金</option>
+              <option value=”urikake”>売掛金</option>
+              <option value=”shouhin”>商品</option>
+              <option value=”mishu”>未収入金</option>
+              <option value=”kougukigu”>工具器具備品</option>
+              <option value=”ikkatu”>一括償却資産</option>
+              <option value=”soft”>ソフトウェア</option>
+              <option value=”softkari”>ソフトウェア仮勘定</option>
+              <option value=”chomae”>長期前払費用</option>
+              <option value=”shikikin”>敷金</option>
+              <option value=”mibaraihoujin”>未払法人税等</option>
+              <option value=”shihonkin”>資本金</option>
+              <option value=”junbikin”>資本準備金</option>
+            </optgroup>
+            <optgroup label="PL科目">
+              <option value=”uriage”>売上高</option>
+              <option value=”kishutana”>期首棚卸高</option>
+              <option value=”kimatutana”>期末棚卸高</option>
+              <option value=”gyoumu”>業務委託費</option>
+              <option value=”bihin”>備品・消耗品費</option>
+              <option value=”chidai”>地代家賃</option>
+              <option value=”tesuryo”>支払手数料</option>
+              <option value=”ukeri”>受取利息</option>
+              <option value=”ukehai”>受取配当金</option>
+              <option value=”houjinzei”>法人税等</option>
+            </optgroup>
+          </select>
+        </div>
+        <div id="grid_item8" class="sell">
+          <select name=”kamoku” class="grid_answer_num">
+            <option value=”null”></option>
+            <option value=”num1”>46,741</option>
+            <option value=”num2”>130,000</option>
+            <option value=”num3”>258,459</option>
+            <option value=”num4”>305,200</option>
+            <option value=”num5”>450,000</option>
+            <option value=”num6”>660,000</option>
+            <option value=”num7”>900,000</option>
+            <option value=”num8”>1,350,000</option>
+            <option value=”num9”>1,500,000</option>
+            <option value=”num10”>3,000,000</option>
+            <option value=”num11”>5,000,000</option>
+            <option value=”num12”>6,000,000</option>
+            <option value=”num13”>7,200,000</option>
+            <option value=”num14”>10,000,000</option>
+            <option value=”num15”>15,000,000</option>
+            <option value=”num16”>20,000,000</option>
+          </select>
+        </div>
+        <div id="grid_item9" class="sell">
+          <select name=”kamoku” class="grid_answer">
+            <option value=”null”></option>
+            <optgroup label="BS科目">
+              <option value=”cash”>現預金</option>
+              <option value=”urikake”>売掛金</option>
+              <option value=”shouhin”>商品</option>
+              <option value=”mishu”>未収入金</option>
+              <option value=”kougukigu”>工具器具備品</option>
+              <option value=”ikkatu”>一括償却資産</option>
+              <option value=”soft”>ソフトウェア</option>
+              <option value=”softkari”>ソフトウェア仮勘定</option>
+              <option value=”chomae”>長期前払費用</option>
+              <option value=”shikikin”>敷金</option>
+              <option value=”mibaraihoujin”>未払法人税等</option>
+              <option value=”shihonkin”>資本金</option>
+              <option value=”junbikin”>資本準備金</option>
+            </optgroup>
+            <optgroup label="PL科目">
+              <option value=”uriage”>売上高</option>
+              <option value=”kishutana”>期首棚卸高</option>
+              <option value=”kimatutana”>期末棚卸高</option>
+              <option value=”gyoumu”>業務委託費</option>
+              <option value=”bihin”>備品・消耗品費</option>
+              <option value=”chidai”>地代家賃</option>
+              <option value=”tesuryo”>支払手数料</option>
+              <option value=”ukeri”>受取利息</option>
+              <option value=”ukehai”>受取配当金</option>
+              <option value=”houjinzei”>法人税等</option>
+            </optgroup>
+          </select>
+        </div>
+        <div id="grid_item10" class="sell">
+          <select name=”kamoku” class="grid_answer_num">
+            <option value=”null”></option>
+            <option value=”num1”>46,741</option>
+            <option value=”num2”>130,000</option>
+            <option value=”num3”>258,459</option>
+            <option value=”num4”>305,200</option>
+            <option value=”num5”>450,000</option>
+            <option value=”num6”>660,000</option>
+            <option value=”num7”>900,000</option>
+            <option value=”num8”>1,350,000</option>
+            <option value=”num9”>1,500,000</option>
+            <option value=”num10”>3,000,000</option>
+            <option value=”num11”>5,000,000</option>
+            <option value=”num12”>6,000,000</option>
+            <option value=”num13”>7,200,000</option>
+            <option value=”num14”>10,000,000</option>
+            <option value=”num15”>15,000,000</option>
+            <option value=”num16”>20,000,000</option>
+          </select>
+        </div>
+        <div id="grid_item11" class="sell">
+          <select name=”kamoku” class="grid_answer">
+            <option value=”null”></option>
+            <optgroup label="BS科目">
+              <option value=”cash”>現預金</option>
+              <option value=”urikake”>売掛金</option>
+              <option value=”shouhin”>商品</option>
+              <option value=”mishu”>未収入金</option>
+              <option value=”kougukigu”>工具器具備品</option>
+              <option value=”ikkatu”>一括償却資産</option>
+              <option value=”soft”>ソフトウェア</option>
+              <option value=”softkari”>ソフトウェア仮勘定</option>
+              <option value=”chomae”>長期前払費用</option>
+              <option value=”shikikin”>敷金</option>
+              <option value=”mibaraihoujin”>未払法人税等</option>
+              <option value=”shihonkin”>資本金</option>
+              <option value=”junbikin”>資本準備金</option>
+            </optgroup>
+            <optgroup label="PL科目">
+              <option value=”uriage”>売上高</option>
+              <option value=”kishutana”>期首棚卸高</option>
+              <option value=”kimatutana”>期末棚卸高</option>
+              <option value=”gyoumu”>業務委託費</option>
+              <option value=”bihin”>備品・消耗品費</option>
+              <option value=”chidai”>地代家賃</option>
+              <option value=”tesuryo”>支払手数料</option>
+              <option value=”ukeri”>受取利息</option>
+              <option value=”ukehai”>受取配当金</option>
+              <option value=”houjinzei”>法人税等</option>
+            </optgroup>
+          </select>
+        </div>
+        <div id="grid_item12" class="sell">
+          <select name=”kamoku” class="grid_answer_num">
+            <option value=”null”></option>
+            <option value=”num1”>46,741</option>
+            <option value=”num2”>130,000</option>
+            <option value=”num3”>258,459</option>
+            <option value=”num4”>305,200</option>
+            <option value=”num5”>450,000</option>
+            <option value=”num6”>660,000</option>
+            <option value=”num7”>900,000</option>
+            <option value=”num8”>1,350,000</option>
+            <option value=”num9”>1,500,000</option>
+            <option value=”num10”>3,000,000</option>
+            <option value=”num11”>5,000,000</option>
+            <option value=”num12”>6,000,000</option>
+            <option value=”num13”>7,200,000</option>
+            <option value=”num14”>10,000,000</option>
+            <option value=”num15”>15,000,000</option>
+            <option value=”num16”>20,000,000</option>
+          </select>
+        </div>
+        <div id="grid_item13" class="sell">
+          <select name=”kamoku” class="grid_answer">
+            <option value=”null”></option>
+            <optgroup label="BS科目">
+              <option value=”cash”>現預金</option>
+              <option value=”urikake”>売掛金</option>
+              <option value=”shouhin”>商品</option>
+              <option value=”mishu”>未収入金</option>
+              <option value=”kougukigu”>工具器具備品</option>
+              <option value=”ikkatu”>一括償却資産</option>
+              <option value=”soft”>ソフトウェア</option>
+              <option value=”softkari”>ソフトウェア仮勘定</option>
+              <option value=”chomae”>長期前払費用</option>
+              <option value=”shikikin”>敷金</option>
+              <option value=”mibaraihoujin”>未払法人税等</option>
+              <option value=”shihonkin”>資本金</option>
+              <option value=”junbikin”>資本準備金</option>
+            </optgroup>
+            <optgroup label="PL科目">
+              <option value=”uriage”>売上高</option>
+              <option value=”kishutana”>期首棚卸高</option>
+              <option value=”kimatutana”>期末棚卸高</option>
+              <option value=”gyoumu”>業務委託費</option>
+              <option value=”bihin”>備品・消耗品費</option>
+              <option value=”chidai”>地代家賃</option>
+              <option value=”tesuryo”>支払手数料</option>
+              <option value=”ukeri”>受取利息</option>
+              <option value=”ukehai”>受取配当金</option>
+              <option value=”houjinzei”>法人税等</option>
+            </optgroup>
+          </select>
+        </div>
+        <div id="grid_item14" class="sell">
+          <select name=”kamoku” class="grid_answer_num">
+            <option value=”null”></option>
+            <option value=”num1”>46,741</option>
+            <option value=”num2”>130,000</option>
+            <option value=”num3”>258,459</option>
+            <option value=”num4”>305,200</option>
+            <option value=”num5”>450,000</option>
+            <option value=”num6”>660,000</option>
+            <option value=”num7”>900,000</option>
+            <option value=”num8”>1,350,000</option>
+            <option value=”num9”>1,500,000</option>
+            <option value=”num10”>3,000,000</option>
+            <option value=”num11”>5,000,000</option>
+            <option value=”num12”>6,000,000</option>
+            <option value=”num13”>7,200,000</option>
+            <option value=”num14”>10,000,000</option>
+            <option value=”num15”>15,000,000</option>
+            <option value=”num16”>20,000,000</option>
+          </select>
+        </div>
+        <div id="grid_item15" class="sell">
+          <select name=”kamoku” class="grid_answer">
+            <option value=”null”></option>
+            <optgroup label="BS科目">
+              <option value=”cash”>現預金</option>
+              <option value=”urikake”>売掛金</option>
+              <option value=”shouhin”>商品</option>
+              <option value=”mishu”>未収入金</option>
+              <option value=”kougukigu”>工具器具備品</option>
+              <option value=”ikkatu”>一括償却資産</option>
+              <option value=”soft”>ソフトウェア</option>
+              <option value=”softkari”>ソフトウェア仮勘定</option>
+              <option value=”chomae”>長期前払費用</option>
+              <option value=”shikikin”>敷金</option>
+              <option value=”mibaraihoujin”>未払法人税等</option>
+              <option value=”shihonkin”>資本金</option>
+              <option value=”junbikin”>資本準備金</option>
+            </optgroup>
+            <optgroup label="PL科目">
+              <option value=”uriage”>売上高</option>
+              <option value=”kishutana”>期首棚卸高</option>
+              <option value=”kimatutana”>期末棚卸高</option>
+              <option value=”gyoumu”>業務委託費</option>
+              <option value=”bihin”>備品・消耗品費</option>
+              <option value=”chidai”>地代家賃</option>
+              <option value=”tesuryo”>支払手数料</option>
+              <option value=”ukeri”>受取利息</option>
+              <option value=”ukehai”>受取配当金</option>
+              <option value=”houjinzei”>法人税等</option>
+            </optgroup>
+          </select>
+        </div>
+        <div id="grid_item16" class="sell">
+          <select name=”kamoku” class="grid_answer_num">
+            <option value=”null”></option>
+            <option value=”num1”>46,741</option>
+            <option value=”num2”>130,000</option>
+            <option value=”num3”>258,459</option>
+            <option value=”num4”>305,200</option>
+            <option value=”num5”>450,000</option>
+            <option value=”num6”>660,000</option>
+            <option value=”num7”>900,000</option>
+            <option value=”num8”>1,350,000</option>
+            <option value=”num9”>1,500,000</option>
+            <option value=”num10”>3,000,000</option>
+            <option value=”num11”>5,000,000</option>
+            <option value=”num12”>6,000,000</option>
+            <option value=”num13”>7,200,000</option>
+            <option value=”num14”>10,000,000</option>
+            <option value=”num15”>15,000,000</option>
+            <option value=”num16”>20,000,000</option>
+          </select>
+        </div>
+      </div>
+      <div id="btn_box">
+        <button id="answer_btn" class="delert_btn">解答する</button>
+        <button id="reset_btn" class="delert_btn">リセット</button>
+        <button id="result_btn">結果</button>
+        <div class="submit">
+          <button id="submit">最初から</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+
+    let quesion = {
+      0: "当社はA社より150万円のコンサルティングサービスの依頼を受けた。",
+      1: "当社はA社へ150万円のコンサルティングサービスを提供した。",
+      2: "当社がA社に対して先月提供したコンサルティングサービスの代金150万円が口座に振り込まれた。",
+      3: "自社で利用する予定のソフトウェアについて、開発途中だが中間金額2,000万円を振り込んだ。",
+      4: "新株の発行により1,000万円が払い込まれた。なお、資本金の増加額は会社法が定める最低額とする。",
+      5: "商品の実地棚卸を実施した結果、期末在庫は720万円であった。なお、期首在庫は600万円であり当期はいずれの処理も行っていない。",
+      6: "66万円の工具器具備品を購入した。",
+      7: "事務所を新たに賃借（家賃15万円）し、敷金（家賃の6か月分）と礼金（家賃の3か月分）を支出した。",
+      8: "13万円のパソコンを購入した。なお、償却資産税を極力抑える処理を採用することとする。",
+      9: "保有する上場株式に係る配当金258,459円が入金された（源泉所得税15.315%）。"
+    };
+
+    const answer = [[],
+    ["売掛金", "1,500,000", "売上高", "1,500,000"],
+    ["現預金", "1,500,000", "売掛金", "1,500,000"],
+    ["ソフトウェア仮勘定", "20,000,000", "現預金", "20,000,000"],
+    ["現預金", "10,000,000", "資本金", "5,000,000", "資本準備金", "5,000,000"],
+    ["期首棚卸高", "6,000,000", "商品", "6,000,000", "商品", "7,200,000", "期末棚卸高", "7,200,000"],
+    ["工具器具備品", "660,000", "現預金", "660,000"],
+    ["敷金", "900,000", "現預金", "1,350,000", "長期前払費用", "450,000"],
+    ["一括償却資産", "130,000", "現預金", "130,000"],
+    ["現預金", "258,459", "受取配当金", "305,200", "法人税等", "46,741"]];
+
+    let numbar = ""; // 任意に問題を出題する用
+    let numbar_array = []; // 選択した数字を格納する用
+    let a = 0; // 無限ループ用
+    let object_key = 0;
+    let i = 1; // 問題数把握用
+    let count = 0; // 正解数把握用
+    let array = []; // 解答格納用
+    
+    // function judgment(array, array_answer, i, count) {
+    //   if (array.length > 6 && array[2] === array_answer[i][2] && array[6] === array_answer[i][2] &&
+    //     array[1] === array[3] && array[5] === array[7] &&
+    //     ((array[0] === array_answer[i][0] && array[1] === array_answer[i][1] && array[4] === array_answer[i][4] && array[5] === array_answer[i][5]) ||
+    //       (array[0] === array_answer[i][4] && array[1] === array_answer[i][5] && array[4] === array_answer[i][0] && array[5] === array_answer[i][1]))) {
+    //     count++;
+    //     return count;
+        
+    //   } else if (array[2] === array_answer[i][2] && array[3] === array_answer[i][3] &&
+    //   array[0] === array_answer[i][4] && array[4] === array_answer[i][0] &&
+    //   array[1] === array_answer[i][5] && array[5] === array_answer[i][1]) {
+    //     count++;
+    //     return count;
+    //   }
+    // }
+    
+    // resultボタンは隠しておく
+    $("#result_btn").hide();
+
+    $("select").val(0);
+    numbar = Math.floor(Math.random() * 10);
+    // 選択した数字を格納
+    numbar_array.push(numbar);
+    // 選択した数字をkeyに持つ問題を出題
+    $("#quesion").text(quesion[numbar]);
+    console.log(quesion[numbar]);
+    
+    $("#answer_btn").on("click", function () {
+      // プルダウンの解答を格納する
+      $(".sell option:selected").each(function () {
+        array.push($(this).text());
+      });
+
+      // 値からkeyを検索する
+      object_key = Object.keys(quesion).find((key) => quesion[key] === quesion[numbar]);
+      console.log(numbar, numbar_array);
+      console.log(object_key);
+      console.log(array.toString());
+      
+      // 格納された要素を繋げて文字列にする
+      if (array.toString() === answer[object_key].toString()) {
+        count++;
+        
+        // 解答が格納された配列の要素が多い場合
+      } else if (object_key == 4) {
+        // 仕訳の順番が逆でもTrueとなるよう条件設定
+        if (array.length > 6 && array[0] === answer[object_key][0] && array[4] === answer[object_key][0] &&
+          array[1] === array[3] && array[5] === array[7] &&
+          ((array[2] === answer[object_key][2] && array[3] === answer[object_key][3] && array[6] === answer[object_key][4] && array[7] === answer[object_key][5]) ||
+            (array[2] === answer[object_key][4] && array[3] === answer[object_key][5] && array[6] === answer[object_key][2] && array[7] === answer[object_key][3]))) {
+          count++;
+
+        } else {
+          if (array[0] === answer[object_key][0] && array[1] === answer[object_key][1] &&
+          array[2] === answer[object_key][4] && array[4] === answer[object_key][2] &&
+            array[3] === answer[object_key][5] && array[5] === answer[object_key][3]) {
+            count++;
+            console.log(answer[object_key][0]);
+          }
+        }
+      } else if (object_key == 5) {
+        if (array[0] === answer[object_key][4] && array[1] === answer[object_key][5] &&
+        array[2] === answer[object_key][6] && array[3] === answer[object_key][7] &&
+        array[4] === answer[object_key][0] && array[5] === answer[object_key][1] &&
+        array[6] === answer[object_key][2] && array[7] === answer[object_key][3]) {
+          count++;
+        }
+      } else {
+        if (array.length > 6 && array[2] === answer[object_key][2] && array[6] === answer[object_key][2] &&
+          array[1] === array[3] && array[5] === array[7] &&
+          ((array[0] === answer[object_key][0] && array[1] === answer[object_key][1] && array[4] === answer[object_key][4] && array[5] === answer[object_key][5]) ||
+            (array[0] === answer[object_key][4] && array[1] === answer[object_key][5] && array[4] === answer[object_key][0] && array[5] === answer[object_key][1]))) {
+          count++;
+    
+        } else if (array[2] === answer[object_key][2] && array[3] === answer[object_key][3] &&
+          array[0] === answer[object_key][4] && array[4] === answer[object_key][0] &&
+          array[1] === answer[object_key][5] && array[5] === answer[object_key][1]) {
+          count++;
+        }
+      }
+      console.log(count);
+      
+      // 出題した問題を削除する
+      delete quesion[numbar];
+      console.log(quesion);
+
+      // 解答配列を空にする
+      array = [];
+      
+      // 初期値に戻す
+      $("select").val(0);
+      
+      // 問題数カウント
+      i++;
+
+      // 5問出題したら結果のボタンだけになる
+      if (i === 6) {
+        $(".delert_btn").remove();
+        $("#result_btn").show();
+
+        // 5問出題するまでは問題を出す
+      } else {
+        // 問題番号を変える
+        $("#quesion_count").text(i);
+
+        // 同じ番号が出た時にもう一度番号を選びなおす
+        do {
+          numbar = Math.floor(Math.random() * 10);
+          // 一致する数字が格納されていたら「1」それ以外は「-1」を返す
+          if ($.inArray(numbar, numbar_array) === -1) {
+            numbar_array.push(numbar);
+            $("#quesion").text(quesion[numbar]);
+            brerk;
+          }
+        } while (a < 1);
+        console.log(quesion[numbar]);
+      }
+    });
+
+    // リセットボタンクリック時
+    $("#reset_btn").on("click", function () {
+      $("select").val(0);
+    });
+
+    // resultボタン押したときにボタンを消す
+    $("#result_btn").on("click", function () {
+      $("#result_box").text(count);
+      $("#result_btn").remove();
+    });
+
+    // 画面をリロード
+    $(document).ready(function () {
+      $("#submit").click(function () {
+        $(location).prop("href", location.href);
+      })
+    });
+
+  </script>
+</body>
+
+</html>
