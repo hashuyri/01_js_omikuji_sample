@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>おみくじ</title>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <main>
+
+    <section class="title_section">
+      <h1>おみくじ</h1>
+    </section>
+
+    <section class="result_section" id="result">
+      <p>結果は？？</p>
+    </section>
+
+    <section class="button_section">
+      <button id="button">おみくじをひく</button>
+    </section>
+
+  </main>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    const massage = "JavaScript!!!!!";
+    const numbar1 = 100;
+    const numbar2 = 200;
+    let text1 = "G's";
+    let randomnumber;
+    const space = " ";
+    const text2 = "Academy";
+    const unit = "円";
+
+    // sum = numbar1 + numbar2;
+    // console.log(sum);
+    
+    // text3 = text1 + space + text2;
+    // console.log(text3);
+
+    // result = numbar1 + unit;
+    // console.log(result);
+
+    const min = 0;
+    const max = 4;
+    randomnumber = Math.floor(Math.random() * (max - min + 1) + min);
+    $("#button").on("click", function () {
+      if (randomnumber === 0) {
+        // $("#result").text("大吉");
+        text1 = "大吉"
+      } else if (randomnumber === 1) {
+        // $("#result").text("中吉");
+        text1 = "中吉"
+      } else if (randomnumber === 2) {
+        // $("#result").text("吉");
+        text1 = "吉"
+      } else if (randomnumber === 3) {
+        // $("#result").text("凶");
+        text1 = "凶"
+      } else {
+        // $("#result").text("大凶");
+        text1 = "大凶"
+      }
+      $("#result").text(text1);
+    });
+    
+    console.log(randomnumber);
+
+    // alert(massage);
+    // console.log(massage);
+  </script>
+</body>
+
+</html>

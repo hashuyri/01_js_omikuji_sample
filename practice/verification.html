@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>検証</title>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style_v.css">
+</head>
+
+<body>
+  <main>
+
+    <section>
+      <p id="talk"></p>
+    </section>
+
+    <section class="title_section">
+      <button id="button1" class="button"></button>
+      <button id="button2" class="button"></button>
+      <button id="button3" class="button"></button>
+      <button id="button4" class="button">次へ</button>
+    </section>
+
+  </main>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    let totalpoint = 0;
+
+    const yamauchiquesion = [
+    {quesion: "G'sの課題終わった？？", response1: "終わった", response2: "終わってない", response3: "キレる" },
+    {quesion: "プログラミング言語どれが好き？", response1: "HTML", response2: "CSS", response3: "JavaScript" },
+    {quesion: "ちょっと聞いてもいい？", response1: "もちろん", response2: "ごめんなさい", response3: "30分後なら大丈夫" }
+  ];
+
+    const kadaianswer = [
+      {quesion: "どれくらい時間かかった？", response1: "10時間以下", response2: "20時間以下", response3: "すごいいっぱい" },
+      {quesion: "何してたの？", response1: "仕事", response2: "寝てた", response3: "遊んでた" },
+      {quesion: "どうしたの？", response1: "いやなことがあった", response2: "悔しかった", response3: "何でもない" }
+    ];
+    
+    const timeanswer = [{talk: "頑張ったね", point: 10},
+      {talk: "すごいね", point: 20}, {talk: "アメージング", point: 30}];
+
+    function yamauchi(array) {
+      const i = randomnumber = Math.floor(Math.random() * array.length);
+      $("#talk").text(array[i].quesion);
+      $("#button1").text(array[i].response1);
+      $("#button2").text(array[i].response2);
+      $("#button3").text(array[i].response3);
+      array = array.splice(0, i);
+    }
+
+    function tennkai(array, i) {
+      $("#talk").text(array[i].quesion);
+      $("#button1").text(array[i].response1);
+      $("#button2").text(array[i].response2);
+      $("#button3").text(array[i].response3);
+    }
+
+    function pointget(array, i) {
+      $("#talk").text(array[i].talk);
+      return array[i].point;
+    }
+
+    yamauchi(yamauchiquesion);
+    console.log(yamauchiquesion);
+    
+    $("#button4").hide();
+    $("#button1").on("click", function () {
+      const str = $("#button1").text();
+      if (str === "終わった") {
+        tennkai(kadaianswer, 0);
+      } else if (str === "10時間以下") {
+        $(".button").hide();
+        $("#button4").show();
+        totalpoint = totalpoint + pointget(timeanswer, 0);
+      }
+      console.log(totalpoint);
+    });
+    
+    $("#button4").on("click", function () {
+      $(".button").show();
+      $("#button4").hide();
+      yamauchi(yamauchiquesion);
+    });
+    
+  </script>
+</body>
+
+</html>

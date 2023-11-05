@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+button {
+  width: 200px;
+  height: 70px;
+}
+
+main {
+  max-width: 480px;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+section {
+  height: calc(100vh/3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

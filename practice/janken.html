@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>じゃんけん</title>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet" />
+  <link rel="stylesheet" href="css/janken.css">
+</head>
+
+<body>
+  <main>
+
+    <section>
+      <h1>じゃんけん</h1>
+    </section>
+
+    <section>
+      <p>コンピュータの手は？？</p>
+      <p id="computer_result"></p>
+    </section>
+
+    <section>
+      <p>あなたの手</p>
+      <p id="you_result"></p>
+    </section>
+
+    <section>
+      <p>勝敗は？？</p>
+      <p id="result"></p>
+    </section>
+
+    <section>
+      <button class="button">グー</button>
+      <button class="button">チョキ</button>
+      <button class="button">パー</button>
+      <button id="submit">再読み込み</button>
+    </section>
+
+  </main>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    const pattern = ["グー", "チョキ", "パー"];
+    let numbar = "乱数用変数";
+    let computer_select = "コンピュータが選んだ手"; 
+    let you_select = "あなたが選んだ手";
+    let conclusion = "勝敗";
+    
+    
+    // いずれかのボタンクリックの場合
+    $(".button").on("click", function(e) {
+      // ランダムに出し手を選択する
+      numbar = Math.floor(Math.random() * pattern.length);
+      computer_select = pattern[numbar];
+      you_select = $(this).text();  // 押されたボタンのテキストを格納
+      if (computer_select === you_select) {  // あいこを定義
+        conclusion = "あいこ";
+      } else if (  // 勝ちを定義
+      (numbar === 0 && you_select === "パー") ||
+      (numbar === 1 && you_select === "グー") ||
+      (numbar === 2 && you_select === "チョキ")) {
+        conclusion = "勝ち！！";
+      } else {  // それ以外は「負け」
+        conclusion = "負け( ；∀；)";
+      }
+      $("#computer_result").text(computer_select);
+      $("#you_result").text(you_select);
+      $("#result").text(conclusion);
+      console.log(e);
+    });
+    
+    // 画面をリロード
+    $(document).ready(function () {
+      $("#submit").click(function () {
+        $(location).prop("href", location.href);
+      })
+    });
+    
+    console.log(computer_select);
+    console.log(you_select);
+    console.log(conclusion);
+  </script>
+</body>
+
+</html>
